@@ -18,7 +18,7 @@ class IntroPage extends StatelessWidget {
             SizedBox(height: 25),
             // shop name
             Text(
-              "CAKE MAN",
+              "CAKES SHOP",
               style: GoogleFonts.dmSerifDisplay(
                 fontSize: 28,
                 color: Colors.white,
