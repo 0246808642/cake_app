@@ -1,6 +1,7 @@
 import 'package:cake_shop/components/button.dart';
 import 'package:cake_shop/components/food_tiled.dart';
 import 'package:cake_shop/models/food.dart';
+import 'package:cake_shop/pages/food_details_page.dart';
 import 'package:cake_shop/themes/colors.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -13,28 +14,16 @@ class MenuPage extends StatefulWidget {
 }
 
 class _MenuPageState extends State<MenuPage> {
-  // food menu
-  List foodMenu = [
-    // strawberry cake
-    Food(
-      name: "Strawberry Cake",
-      price: "20.00",
-      imagePath: "lib/assets/cake-slice.png",
-      rating: "5.0",
-    ),
-
-    // chocolate cake
-    Food(
-      name: "Chocolate Cake",
-      price: "22.00",
-      imagePath: "lib/assets/cake.png",
-      rating: "4.9",
-    ),
-  ];
+ 
 
   // navigate to food item details page
-  void navigateToFoodDetials(int index){
-    Navigator.push(context,MaterialPageRoute(builder: (context)=> FoodDetailsPage(),),);
+  void navigateToFoodDetials(int index) {
+    Navigator.push(
+      context,
+      MaterialPageRoute(
+        builder: (context) => FoodDetailsPage(food: foodMenu[index]),
+      ),
+    );
   }
 
   @override
@@ -45,7 +34,7 @@ class _MenuPageState extends State<MenuPage> {
         backgroundColor: Colors.transparent,
         elevation: 0,
         leading: Icon(Icons.menu, color: Colors.grey[900]),
-        title: Text("Cakes", style: TextStyle(color: Colors.grey[900])),
+        title: Text("Bolos De Deliciosos", style: TextStyle(color: Colors.grey[900])),
       ),
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -65,7 +54,7 @@ class _MenuPageState extends State<MenuPage> {
                 Column(
                   children: [
                     Text(
-                      "Get 40% Promo",
+                      "Promoção de até 40%",
                       style: GoogleFonts.dmSerifDisplay(
                         fontSize: 20,
                         color: Colors.white,
@@ -75,12 +64,15 @@ class _MenuPageState extends State<MenuPage> {
                     const SizedBox(height: 20),
 
                     // redeem button
-                    MyButton(text: "Redeem", onTap: () {}),
+                    MyButton(text: "Confira", onTap: () {}),
                   ],
                 ),
 
                 // image
-                Image.asset('lib/assets/cake_um.png', height: 100),
+                Image.asset(
+                  'lib/assets/WhatsApp Image 2025-07-07 at 16.37.09.png',
+                  height: 100,
+                ),
               ],
             ),
           ),
@@ -100,7 +92,7 @@ class _MenuPageState extends State<MenuPage> {
                   borderSide: BorderSide(color: Colors.white),
                   borderRadius: BorderRadius.circular(20),
                 ),
-                hintText: "Search here..."
+                hintText: "Busque um sabor delicioso...",
               ),
             ),
           ),
@@ -111,7 +103,7 @@ class _MenuPageState extends State<MenuPage> {
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 25),
             child: Text(
-              "Food Menu",
+              "Menu",
               style: TextStyle(
                 fontWeight: FontWeight.bold,
                 color: Colors.grey[800],
@@ -128,9 +120,8 @@ class _MenuPageState extends State<MenuPage> {
               itemCount: foodMenu.length,
               itemBuilder: (context, index) => FoodTiled(
                 food: foodMenu[index],
-                onTap: ,
-                
-                ),
+                onTap: () => navigateToFoodDetials(index),
+              ),
             ),
           ),
           const SizedBox(height: 25),
@@ -149,7 +140,10 @@ class _MenuPageState extends State<MenuPage> {
                 // image
                 Row(
                   children: [
-                    Image.asset("lib/assets/cake_dois.png", height: 60),
+                    Image.asset(
+                      "lib/assets/WhatsApp Image 2025-07-07 at 16.41.13.png",
+                      height: 60,
+                    ),
 
                     const SizedBox(width: 20),
 
@@ -159,7 +153,7 @@ class _MenuPageState extends State<MenuPage> {
                       children: [
                         // name
                         Text(
-                          "Wedding Cake",
+                          "Bolo Especial De Aniversário",
                           style: GoogleFonts.dmSerifDisplay(fontSize: 18),
                         ),
                         const SizedBox(height: 10),

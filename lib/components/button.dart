@@ -1,3 +1,4 @@
+import 'package:cake_shop/themes/colors.dart';
 import 'package:flutter/material.dart';
 
 class MyButton extends StatelessWidget {
@@ -11,7 +12,7 @@ class MyButton extends StatelessWidget {
       onTap: onTap,
       child: Container(
         decoration: BoxDecoration(
-          color: Color.fromARGB(109, 140, 94, 91),
+          color: secondaryColor,
           borderRadius: BorderRadius.circular(40),
         ),
       
@@ -20,7 +21,7 @@ class MyButton extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             // text
-            Text(text, style: TextStyle(color: Colors.white)),
+            Text(text,  style: TextStyle(color: Colors.white, fontSize: 15)),
       
             SizedBox(width: 10),
       

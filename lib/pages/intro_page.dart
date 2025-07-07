@@ -1,4 +1,5 @@
 import 'package:cake_shop/components/button.dart';
+import 'package:cake_shop/themes/colors.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -8,7 +9,7 @@ class IntroPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color.fromARGB(255, 138, 60, 55),
+      backgroundColor: primaryColor,
       body: Padding(
         padding: const EdgeInsets.all(8.0),
         child: Column(
@@ -18,7 +19,7 @@ class IntroPage extends StatelessWidget {
             SizedBox(height: 25),
             // shop name
             Text(
-              "CAKES SHOP",
+              "BOLOS DA TIA",
               style: GoogleFonts.dmSerifDisplay(
                 fontSize: 28,
                 color: Colors.white,
@@ -27,14 +28,14 @@ class IntroPage extends StatelessWidget {
             // icon
             Padding(
               padding: EdgeInsets.all(50),
-              child: Image.asset('lib/assets/cake_dois.png'),
+              child: Image.asset('lib/assets/LOGO INSTA - Google Chrome 07_07_2025 16_43_53.png'),
             ),
 
-            SizedBox(height: 25),
+         
 
             // title
             Text(
-              "FIND THE PERFECT CAKE FOR EVERY SPECIAL MOMENT",
+              "ENCONTRE O BOLO PERFEITO PARA CADA MOMENTO ESPECIAL",
               style: GoogleFonts.dmSerifDisplay(
                 fontSize: 36,
                 color: Colors.white,
@@ -43,15 +44,15 @@ class IntroPage extends StatelessWidget {
 
             // subtitle
             Text(
-              "DELIGHT IN EVERY BITE WITH FLAVORS THAT WARM THE HEART",
-              style: TextStyle(color: Colors.grey[300], height: 4),
+              "DELICIE-SE COM CADA MORDIDA COM SABORES QUE AQUECEM O CORAÇÃO",
+              style: TextStyle(color: Colors.grey[300], height: 3),
             ),
 
             SizedBox(height: 25),
 
             // get started button
             MyButton(
-              text: "Get Started",
+              text: "Iniciar",
               onTap: () {
                 // go to menu page
                 Navigator.pushNamed(context, '/menupage');
