@@ -2,9 +2,11 @@ import 'package:cake_shop/components/button.dart';
 import 'package:cake_shop/components/food_tiled.dart';
 import 'package:cake_shop/models/food.dart';
 import 'package:cake_shop/pages/food_details_page.dart';
+import 'package:cake_shop/pages/shop.dart';
 import 'package:cake_shop/themes/colors.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
 
 class MenuPage extends StatefulWidget {
   const MenuPage({super.key});
@@ -14,10 +16,11 @@ class MenuPage extends StatefulWidget {
 }
 
 class _MenuPageState extends State<MenuPage> {
- 
-
   // navigate to food item details page
   void navigateToFoodDetials(int index) {
+    // get the shop and it's menu
+    final shop = context.read<Shop>();
+    final foodMenu = shop.foodMenu;
     Navigator.push(
       context,
       MaterialPageRoute(
@@ -28,13 +31,28 @@ class _MenuPageState extends State<MenuPage> {
 
   @override
   Widget build(BuildContext context) {
+    // get the shop and it's menu
+    final shop = context.read<Shop>();
+    final foodMenu = shop.foodMenu;
     return Scaffold(
       backgroundColor: Colors.grey[300],
       appBar: AppBar(
         backgroundColor: Colors.transparent,
+        foregroundColor: Colors.grey[800],
         elevation: 0,
-        leading: Icon(Icons.menu, color: Colors.grey[900]),
-        title: Text("Bolos De Deliciosos", style: TextStyle(color: Colors.grey[900])),
+        leading: const Icon(Icons.menu),
+        centerTitle: true, 
+        title: const Text(
+          "Bolos Deliciosos",
+        ),
+        actions: [
+          IconButton(
+            onPressed: () {
+              Navigator.pushNamed(context, '/cartpage');
+            },
+            icon: const Icon(Icons.shopping_cart),
+          ),
+        ],
       ),
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.start,

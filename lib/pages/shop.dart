@@ -1,6 +1,7 @@
 import 'package:cake_shop/models/food.dart';
+import 'package:flutter/material.dart';
 
-class Shop {
+class Shop extends ChangeNotifier {
   // food menu
   final List<Food> _foodMenu = [
     // strawberry cake
@@ -28,7 +29,7 @@ class Shop {
   List<Food> _cart = [];
 
   // getter methods
-   List<Food> get foodMenu => _foodMenu;
+  List<Food> get foodMenu => _foodMenu;
   List<Food> get cart => _cart;
 
   // add to cart
@@ -36,5 +37,12 @@ class Shop {
     for (int i = 0; i < quantity; i++) {
       _cart.add(foodItem);
     }
+    notifyListeners();
+  }
+
+  // remove to card
+  void removeToCart(Food food) {
+    _cart.remove(food);
+    notifyListeners();
   }
 }
